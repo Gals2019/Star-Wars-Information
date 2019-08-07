@@ -54,50 +54,70 @@ namespace AppInfoStarWars
                 }
             }
         }
-
+        /*Metodo para listar Peliculas del personaje seleccionado*/
         private void listarPeliculas()
         {
+            /*Limpiamos la lista*/
             lstPeliculas.Items.Clear();
 
+            /*Iteramos dentro del listado de peliculas del Archivo Peliculas.json*/
             foreach (Pelicula pelicula in llc.getPeliculas())
             {
+                /*iteramos dentro del array de films del personaje encontrado*/
                 foreach (String item in p.films)
                 {
+                    /*verificamos si el film recorrido del personaje encontrado es igual al film recorrido en 
+                     iteracion anterior*/
                     if (item==pelicula.url)
                     {
+                        /*se agrega el titulo de la pelicula al listado*/
                         lstPeliculas.Items.Add(pelicula.title);
+
+                        /*terminamos iteracion del film del personaje y pasamos a la siguiente pelicula*/
                         break;
                     }
                 }
             }
 
         }
-
+        /*metodo para buscar las naves del personaje*/
         private void listarNaves()
         {
+            /*limpamos la lista*/
             lstNaves.Items.Clear();
 
-            foreach (Nave nave in llc.getNaves())
-            {
+                /*recorremos el array de naves del personaje*/
                 foreach (String item in p.starships)
                 {
-                    if (item==nave.url)
+                       /*iteramos dentro del array del archivo Naves.json*/
+                    foreach (Nave nave in llc.getNaves())
                     {
-                        lstNaves.Items.Add(nave.name);
-                        break;
+                        /*Verificamos que la url de la nave recorrida del array del personaje sea igual al del array de naves del json*/
+                        if (item==nave.url)
+                        {
+                            /*guardamos el nombre de la nave encontrada dentro del listado*/
+                            lstNaves.Items.Add(nave.name);
+                            
+                            /*terminamos iteracion del array del json*/
+                            break;
+                        }
                     }
                 }
-            }
 
         }
 
+        /*metodo para buscar el nombre del mundo del personaje*/
         private void Mundo() {
-
+            /*iteramos dentro del array del json Mundos.json*/
             foreach (Mundo mundo in llc.getMundos())
             {
+                /*verificamos si la url de la propiedad homeworld del personaje encontrado es igual al del mundo del json*/
                 if (mundo.url==p.homeworld)
                 {
+                    /*Asignamos el nombre del mundo recorrido al lbl correspondiente*/
                     lblHogar.Text = mundo.name;
+
+                    /*finalizamos iteracion*/
                     break;
                 }
 
