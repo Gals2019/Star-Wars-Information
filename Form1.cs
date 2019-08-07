@@ -16,14 +16,7 @@ namespace AppInfoStarWars
         Personaje p;
 
         LlenarCombos llc = new LlenarCombos();
-        /*Personaje p = new Personaje();
-
-        List<Pelicula> listaPeliculas = new List<Pelicula>();
-        List<Nave> listaNaves = new List<Nave>();
-        List<Mundo> listaMundos = new List<Mundo>();
-        List<Especies> listaEspecies = new List<Especies>();
-        List<Vehiculo> listaVehiculos = new List<Vehiculo>();
-        List<Personaje> listaDePersonajes = new List<Personaje>();*/
+     
 
 
         
@@ -108,7 +101,8 @@ namespace AppInfoStarWars
         }
 
         private void CboPersonajes_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   
+            /*Obtengo el nombre del personaje desde el cbo*/
             String valorSeleccionado = cboPersonajes.SelectedItem.ToString();
           
             getBuscarPersonaje(valorSeleccionado);
