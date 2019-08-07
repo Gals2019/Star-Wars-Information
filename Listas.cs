@@ -9,7 +9,7 @@ namespace AppInfoStarWars
 {
     class Listas
     {
-        
+        /*Metodo que recibe un listBox y lo limpia*/
         public static void LimpiarListas(ListBox list) {
 
             list.Items.Clear();

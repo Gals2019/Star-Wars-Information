@@ -18,31 +18,41 @@ namespace AppInfoStarWars
      
         public LlenarCombos() { }
 
+        /*Metodo para devolver un array de personajes desde un archivo Json Local*/
         public static List<Personaje> getPersonajes()
         {
+            /*Creo una nueva lista vacia*/
             List<Personaje> ListadoDePersonajes = new List<Personaje>();
 
+            /*Obtengo la ruta del archivo JSON desde donde se obtendran los datos para la lista*/
             String rutaArchivoPersonajes = Config.obtenerRuta("Personajes.json");
 
-            StreamReader sr = new StreamReader(rutaArchivoPersonajes);
+            /*leemos el archivo Json y lo guardo en una variable*/
+            StreamReader sr = new StreamReader(rutaArchivoPersonajes);            
             String json = sr.ReadToEnd();
 
+            /*Lo convierto de String a un JObject*/
             JObject jo = JObject.Parse(json);
 
+            /*Busco el array dentro del json con los objetos que requiero*/            
             JToken token = (jo["Personajes"] as JArray);
 
+            /*Iteramos dentro del array*/
             foreach (var item in token)
             {
+                /*Instancio un nuevo objeto y luego guardo el item recorrido dentro de ese array*/
                 Personaje p = new Personaje();
 
                 p = JsonConvert.DeserializeObject<Personaje>(item.ToString());
 
+                /*Agrego ese objeto a la lista*/
                 ListadoDePersonajes.Add(p);
             }
-
+            /*Devuelvo la lista*/
             return ListadoDePersonajes;
         }
 
+        /*Idem getPersonajes()*/
         public List<Pelicula> getPeliculas() {
             List<Pelicula> listaPeliculas = new List<Pelicula>();
 
@@ -71,6 +81,7 @@ namespace AppInfoStarWars
 
         }
 
+        /*Idem getPersonajes()*/
         public List<Mundo> getMundos() {
 
             List<Mundo> listaMundos = new List<Mundo>();
@@ -97,6 +108,7 @@ namespace AppInfoStarWars
                 
         }
 
+        /*Idem getPersonajes()*/
         public List<Especies> getEspecies() {
             List<Especies> listadoEspecies = new List<Especies>();
 
@@ -121,6 +133,7 @@ namespace AppInfoStarWars
             return listadoEspecies;
         }
 
+        /*Idem getPersonajes()*/
         public List<Nave> getNaves()
         {
             List<Nave> listadoNaves = new List<Nave>();
@@ -146,6 +159,7 @@ namespace AppInfoStarWars
             return listadoNaves;
         }
 
+        /*Idem getPersonajes()*/
         public List<Vehiculo> getVehiculos()
         {
             List<Vehiculo> listadoVehiculos = new List<Vehiculo>();
