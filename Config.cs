@@ -85,8 +85,8 @@ namespace AppInfoStarWars
             /*declaro variable vacia para ser llenada despues*/
             var personaje = "";
             String jsonObjeto = "";
-            
-            /*Recorro cada direccion de la api (sabemos que tienen 9 paginas)*/ 
+
+            /*Recorro cada direccion de la api (sabemos que tienen 9 paginas)*/
             for (int i = 1; i < 10; i++)
             
             {
