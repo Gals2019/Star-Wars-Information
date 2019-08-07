@@ -14,7 +14,7 @@ namespace AppInfoStarWars
     class Config
     {
 
-        /*Funcion para obtener la ruta de la carpeta*/
+        /*Funcion para obtener la ruta de la carpeta*/ 
         public static String obtenerRuta(String nombreArchivo)
         {
             String ruta = "";
